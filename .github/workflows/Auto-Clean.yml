@@ -13,6 +13,12 @@ jobs:
   auto_clean:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Projects
+        uses: actions/checkout@main
+
+      - name: Cache Clean
+        run: gh cache delete --all
+
       - name: Delete old Releases and Workflows
         uses: ophub/delete-releases-workflows@main
         with:
